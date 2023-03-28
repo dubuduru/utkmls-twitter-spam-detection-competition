@@ -166,22 +166,20 @@ for text, label in eval_loader:
 print('Test accuracy: ', total_correct / total_len)
 
 
-# submission csv
+# csv for submission
 import csv
 FILE_NAME = "submission.csv"
-idx = -1
+idx = 0
 
 with open(FILE_NAME, 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
-    for text in test_df:
-        if idx == -1:
-            idx += 1
-            continue
-        sample = tokenizer.batch_encode_plus([text], max_length=512, padding="max_length", truncation=True, return_tensors='pt')
+    writer.writerow(["Id", "Type"])
+    for text in test_df.values.tolist():
+        sample = tokenizer.batch_encode_plus(text, max_length=512, padding="max_length", truncation=True, return_tensors='pt')
         for k, v in sample.items():
             sample[k] = v.to(device)
         output = model(**sample)
         logits = output.logits
         pred = torch.argmax(F.softmax(logits), dim=1)
-        writer.writerow([idx, id2label[pred]])
+        writer.writerow([idx, id2label[pred.tolist()[0]]])
         idx += 1
