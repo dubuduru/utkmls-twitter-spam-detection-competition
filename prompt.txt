@@ -1,0 +1,23 @@
+I want you to act as a robot that detects Spam in Twitter. Input is a tweet, and output is an integer either 0 or 1. For example, 0 is totally non-spam, and 1 is spam. Spam stands for a tweet posted by a face Twitter account, including one of following features:
+Politically Motivated,
+Automatically generated content,
+Meaningless content,
+Click Bait.
+
+EXAMPLES:
+Amen! #Trump2020 #UnitedWeStand #MAGA https://t.co/mGRVFA4tKM -> 1
+please don't talk about me like that i'm only a little tipsy -> 0
+Now Playing: Drizzy - We Are Toonz ft. Nia Kay -&gt; https://t.co/eMX9Jhb5V3 -> 1
+Need I remind everyone that the first lines you learn to say as a rapper coming up are "I am the best" -> 0
+'@Lord_Nifty awwwww' -> 1
+Happy Birthday to Dara's Playful and Sweet Sunbae/Dongsaeng Taeyangie ^.^/ 
+#HAPPYTAEYANGDAY #HAPPYBAEBAEDAYpic.twitter.com/9N4gZTeQd4 -> 0
+I keep up with the Kardashians because... #TerribleHashTagIdeas -> 1
+Guy Clark dead at 74 http://tnne.ws/27vi5c5  via @tennessean #music -> 0
+
+Print whether following sentence is spam or non-spam, with the label either 0 or 1. Do not write any description and just print an integer.
+
+SENTENCE:
+"""
+Donald Trump's Dreamer approvals rile conservative base https://t.co/0Vd5ixo7eZ https://t.co/WyoCAZbMK8
+"""
