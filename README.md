@@ -46,3 +46,11 @@ Original GPT 논문의 LR (2.5e-4)을 이용하여 bert-base-uncased 및 distilb
 </div>
 </details>
 
+## Bonus (Optional)
+Prompting 관련 아티클을 읽어본 결과, ChatGPT에 프롬프트를 넣어줄 때에는 "I want you to act as ~"로 시작하는 것이 좋다고 합니다. 상황 설명 후, 해당 Kaggle competetion에서 정의한 spam의 개념을 입력합니다.
+
+In-context learning을 위해 8개의 example을 넣어주었습니다. example의 순서에서 어떠한 bias를 얻을 수도 있다고 생각하여, spam과 non-spam을 번갈아가며 넣어주었습니다. spam에 해당하는 4개의 example은 각각 kaggle에서 정의한 4가지 spam feature에 매칭되도록 선정하였습니다.
+
+또한 Input을 넣을 때에는 3개의 큰따옴표로 씌워주는 것이 좋다고 하여, 입력 sentence를 `""" [sentence] """` 형식으로 구성하였습니다.
+
+출력은 0(non-spam) or 1(spam)입니다.
